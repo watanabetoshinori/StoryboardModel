@@ -206,6 +206,7 @@ public class View: Codable {
         case collectionView
         case containerView
         case stackView
+        case visualEffectView
 
         public var classType: View.Type {
             switch self {
@@ -261,6 +262,8 @@ public class View: Codable {
                 return ContainerView.self
             case .stackView:
                 return StackView.self
+            case .visualEffectView:
+                return VisualEffectView.self
             }
         }
 
@@ -318,6 +321,8 @@ public class View: Codable {
                 return try container.decodeIfPresent([ContainerView].self, forKey: self)
             case .stackView:
                 return try container.decodeIfPresent([StackView].self, forKey: self)
+            case .visualEffectView:
+                return try container.decodeIfPresent([VisualEffectView].self, forKey: self)
             }
         }
 
